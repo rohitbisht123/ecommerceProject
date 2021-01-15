@@ -1,0 +1,59 @@
+<div class="container">
+    <div class="row">
+        <div class="col-md-4 col-md-offset-4">
+            <div class="login-panel panel panel-default">
+                <div class="panel-heading">
+                    <h3 class="panel-title">Please Sign In</h3>
+                </div>
+                <div class="panel-body">
+                    <form role="form" [formGroup]="adminlogin" (ngsubmit)="login()">
+                        <fieldset>
+                            <div class="form-group" >
+                                <input class="form-control" formControlName="email" placeholder="E-mail" name="email" type="email"  autofocus>
+                                <div class="form-error" *ngIf="adminlogin.get('email').touched && !adminlogin.get('email').valid">
+                                    <div class="red" *ngIf="adminlogin.get('email').errors.required">
+                                        Email is required
+                                    </div>
+                                    <div class="red" *ngIf="adminlogin.get('email').errors.email && !adminlogin.get('email').errors.required">
+                                        Invalid email address
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group" >
+                                <input class="form-control" formControlName="password" placeholder="Password" name="password" type="password" value="">
+                                <div class="form-error" *ngIf="adminlogin.get('password').touched && !adminlogin.get('password').valid">
+                                    <div class="red" *ngIf="adminlogin.get('password').errors.minlength">
+                                        Password must be at least 4 characters long.
+                                    </div>
+                                    <div class="red" *ngIf="adminlogin.get('password').errors.required">
+                                        Password is required
+                                    </div>
+                                </div> 
+                            </div>
+                            <div class="checkbox">
+                                <label>
+                                    <input name="remember" type="checkbox" value="Remember Me">Remember Me
+                                </label>
+                            </div>
+                            <!-- Change this to a button or input when using this as a form -->
+                            <a href="admin/dashboard" class="btn btn-lg btn-success btn-block">Login</a>
+                        </fieldset>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- jQuery -->
+<script src="../assets/js/jquery.min.js"></script>
+
+<!-- Bootstrap Core JavaScript -->
+<script src="../assets/js/bootstrap.min.js"></script>
+
+<!-- Metis Menu Plugin JavaScript -->
+<script src="../assets/js/metisMenu.min.js"></script>
+
+<!-- Custom Theme JavaScript -->
+<script src="../assets/js/startmin.js"></script>
+
